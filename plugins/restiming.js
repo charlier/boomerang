@@ -41,6 +41,10 @@ impl = {
                                         var rt_name = 'unknown';
                                         if (r[i].name.indexOf('sa.bbc.co.uk') >= 0) {
                                                 rt_name = 'sa';
+                                        } else if (r[i].name.indexOf('ichef.bbci.co.uk') >= 0) {
+                                                rt_name = 'ichef';
+                                        } else if (r[i].name.indexOf('scorecardresearch.com') >= 0) {
+                                                rt_name = 'scorecardresearch';
                                         } else if (r[i].name.indexOf('edigitalsurvey.com') >= 0) {
                                                 rt_name = 'edigitalsurvey';
                                         } else {
