@@ -38,9 +38,17 @@ impl = {
 					restiming: new Array(r.length)
 				};
 				for(i = 0; i < r.length; ++i) {
-					data.restiming[i] = {
-						rt_name: r[i].name.substring(r[i].name.lastIndexOf('/')+1).toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-						rt_in_type: r[i].initiatorType,
+                                        var rt_name = 'unknown';
+                                        if (r[i].name.indexOf('sa.bbc.co.uk') >= 0) {
+                                                rt_name = 'sa';
+                                        } else if (r[i].name.indexOf('edigitalsurvey.com') >= 0) {
+                                                rt_name = 'edigitalsurvey';
+                                        } else {
+                                                rt_name = r[i].name.substring(r[i].name.lastIndexOf('/')+1).toLowerCase().replace(/[^a-z0-9]+/g, "-");
+                                        }
+                                        data.restiming[i] = {
+                                                rt_name: rt_name,
+                                                rt_in_type: r[i].initiatorType,
 						rt_st: r[i].startTime,
 						rt_dur: r[i].duration,
 						rt_fet_st: r[i].fetchStart,
